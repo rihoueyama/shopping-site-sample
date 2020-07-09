@@ -1,0 +1,738 @@
+@import "compass";
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+@mixin fontsize($size: 24) {
+
+font-size: $size + px;
+
+font-size: ($size / 10) * 1rem;
+
+}
+
+$ja_font : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+$basecolor : #f9f8f6;
+$darkbrown: #887f69;
+$lightbrown: #e2ddd4;
+$gray1: #b0b0b0;
+$red1 : #9d1a2d;
+
+html {
+font-size: 62.5%;
+}
+
+body {
+  background-color: $basecolor;
+  font-family: $ja_font;
+  font-size: 12px;
+  a{
+      text-decoration: none;
+  }
+}
+
+header{
+        padding-top: 15px;
+        
+        @media (min-width: 550px) {
+            padding-top: 30px;
+        }
+    
+    .logo img{
+        display: block;
+        margin: 0 auto;
+        width: 97px;
+        height: auto;
+        @media (min-width: 550px){
+            width: 140px;
+            margin: 0;
+        }
+    } // .logo .img
+    
+    .pc_link{
+        text-align: right;
+        img{
+            padding-left: 15px;
+        }
+        .insta{
+            padding-left: 5px;
+            }
+    }
+     // .pc_link
+    
+} // header
+
+.link .pc_link{
+    @media(max-width: 549px){
+        display: none;
+    }
+}
+
+.link .sp_link{
+    
+    margin-bottom: 12px;
+    
+    @media(min-width: 550px){
+        display: none;
+    }
+    text-align: center;
+    
+    img{
+        display: inline-block;
+        padding-right: 5px;
+    }
+}
+
+.flexbox::after
+{
+    display: block;
+    clear: both;
+    content: '';
+}
+// ここまでヘッダー
+
+footer{
+    .pagetop{
+        text-align: right;
+        padding-top: 20px;
+        @media(max-width: 549px){
+            text-align: center;
+        }
+    }
+    
+    .footer_box{
+        border-top: 1px solid $darkbrown;
+        margin-top: 20px;
+        padding-top: 15px;
+        text-align: center;
+        @media(min-width: 550px){
+            padding-top: 25px;
+        }
+            
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            @media(min-width: 550px){
+                a:hover{
+                color: $lightbrown;
+                }
+            }
+    }
+    
+    .copy{
+        text-align: center;
+        @include fontsize(10);
+        color: #b8b4ac;
+    }
+} // footer
+
+h1{
+    @media(max-width:549px){
+        margin-bottom: 12px;
+    }
+}
+
+// sp用ナビ
+.sp_navi_li{
+    background-color: #ff6d77;
+    text-align: left;
+    padding: 20px 10px;
+    display: none;
+    
+    li{
+        list-style: none;
+        
+        a{
+            display: block;
+            text-decoration: none;
+            @include fontsize(14);
+            color: white;
+            border-bottom: 0.5px solid rgba(255,255,255,0.8);
+            padding-bottom: 10px;
+        }
+        
+        a.a_bottom{
+            border: none;
+            padding-bottom: 0;
+        }
+    }
+    
+    li.li_bottom{
+        margin-bottom: 0;
+    }
+} // .sp_navi_li
+
+// 検索フォーム
+#search_box{
+    background-color: white;
+    text-align: left;
+    padding: 20px;
+    
+    img{
+        padding-bottom: 10px;
+    }
+    
+    form{
+        margin-bottom: 0;
+    }
+    
+    .textform{
+        width: 100%;
+        background-image: url(../images/top/search_icon.png);
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        background-color: #eee;
+        color: black;
+        outline: 0;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
+::placeholder{
+  font-style: italic;
+  color: #b5b5b5;
+}
+
+@media(max-width:549px){
+    #search_box{
+        padding: 20px 15px;
+        margin-top: 13px;
+        img{
+            display: none;
+        }
+    }
+}
+
+// ページリンク、カテゴリー
+.link-box{
+    margin-top: 13px;
+    
+    .page-link-img1,
+    .page-link-img2{
+        background: $darkbrown;
+        background-image: url(../images/top/next_icon.png);
+        background-repeat: no-repeat;
+        background-position: 95% center;
+        
+        img{
+            margin: 15px;
+        }
+    }    
+    ul{
+        display: none;
+        li{
+            box-sizing: border-box;
+            background-color: white;
+            list-style: none;
+            margin-bottom: 0;
+            background-image: url(../images/top/next_icon_gray.png);
+            background-repeat: no-repeat;
+            background-position: 95% center;
+            border-bottom: 3px solid $basecolor;
+            
+            a{
+                text-decoration: none;
+                color: black;
+                display: inline-block;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 15px 15px 15px 20px;
+            }
+        }
+    }
+} // link-box
+
+#categories-link.openlink,
+#categories-link2.openlink{
+    
+    .link-box{
+        
+        .page-link-img {
+            background-image: url(../images/top/down_icon.png);
+        }
+    }
+} // ページリンク、カテゴリー
+
+// アバウト、ショップインフォ
+.side-box{
+    background: $darkbrown;
+    margin-top: 10px;
+    img{
+        margin: 15px;
+    }
+}
+
+.sub-contents{
+    background: white;
+    padding: 12px;
+    text-align: center;
+    
+    img.cover-img{
+        width: 100%;
+    }
+    
+    p{
+        text-align: left;
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 549px){
+    .sub-contents{
+        display: flex;
+        .columns2{
+            margin-left: 10px;
+        }
+    }
+}
+// アバウト、ショップインフォ
+
+// カルーセル
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: 0px;
+    display: inline-block;
+    text-align: left;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 25px;
+    height: 2px;
+    margin-left: 0;
+    margin-right: 10px;
+    background: #aaaaaa;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: $red1;
+}
+
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    height: 20px;
+}
+// カルーセル
+
+// メインコンテンツ
+
+.main-title{
+    text-align: center;
+    .pc{
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+    @media(max-width: 549px){
+        .pc{
+        display:none;
+        }
+    }
+    @media(min-width: 550px){
+        .sp{
+            display:none;
+        }
+    }
+}
+
+.main-content{
+    text-align: center;
+    margin-bottom: 18px;
+   .flex-box{
+       background-color: white;
+       margin-top: 15px;
+       display: flex;
+       justify-content: space-between;
+       flex-wrap: wrap;
+       
+       .product-box{
+           border: 1px solid $basecolor;
+           padding: 10px 10px 5px;
+           box-sizing: border-box; // これ大事！
+           width: 33.33333%;
+           @media(max-width: 549px){
+               width: 50%;
+           }
+           
+           .product-title,
+           .product-price{
+               text-align: left;
+               margin-bottom: 10px;
+           }
+       }
+   } 
+}
+
+#guide{
+    .guide-box{
+        margin-top: 15px;
+        
+        @media(min-width: 550px){
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .left-box,
+        .right-box{
+            background-color: white;
+            border-bottom: 3px solid $basecolor;
+            border-top: 3px solid $basecolor;
+            padding: 20px 20px 10px;
+            box-sizing: border-box;
+            
+            @media(min-width: 550px){
+                width: 50%;
+                border-right: 3px solid $basecolor;
+                border-left: 3px solid $basecolor;
+            }
+            
+            h4{
+                color: $darkbrown;
+                @include fontsize(16);
+                font-weight: bold;
+                margin-bottom: 17px;
+            }
+            
+            img{
+                margin-bottom: 7px;
+            }
+            
+            p{
+                margin: 0;
+            }
+            
+            .brown{
+                color: $darkbrown;
+                padding-bottom: 7px;
+            }
+            
+            .black{
+                padding-bottom: 10px;
+            }
+        }
+    }
+}// ガイドボックス
+
+// パンくず
+#pankuzu{
+    background-color: $lightbrown;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+    img{
+            margin-right: 8px;
+        }
+    
+    ol{
+        display: inline;
+        
+        li{
+            display: inline;
+            list-style: none;
+            margin-right: 3px;
+            
+            a{
+                color: $darkbrown;
+                text-decoration: none;
+            }
+        }
+        
+        li:after{
+            content: "/";
+            margin-left: 3px;
+            color: $gray1;
+        }
+        
+        li:last-child:after{
+            content:"";
+        }
+    }
+}
+// パンくず
+
+// #list-cover
+#list-cover{
+    margin-bottom: 5px;
+    @media(max-width: 549px){
+        .pc{
+            display: none;
+        }
+    }
+    @media(min-width: 550px){
+        .sp{
+            display: none;
+        }
+    }
+}
+
+// .main-content2
+.main-content2{
+    text-align: center;
+    margin-bottom: 20px;
+   .flex-box{
+       margin-bottom: 20px;
+       display: flex;
+       justify-content: space-between;
+       flex-wrap: wrap;
+       
+       .product-box{
+           background-color: white;
+           border: 1px solid $basecolor;
+           padding: 10px 10px 5px;
+           box-sizing: border-box; // これ大事！
+           width: 33.33333%;
+           @media(max-width: 549px){
+               width: 50%;
+           }
+           
+           .product-title,
+           .product-price{
+               text-align: left;
+               margin-bottom: 10px;
+           }
+       }
+   } 
+}
+
+.back-next{
+    display: flex;
+    justify-content: space-between;
+    
+    a{
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        background-color: $darkbrown;
+        line-height: 40px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-family: "Avenir Next";
+        box-sizing: border-box;
+    }
+    
+    a:hover{
+        background-color: $darkbrown;
+        color: white;
+    }
+} // .back-next
+
+.main-content2{
+    @media (max-width: 549px){
+        .pc{
+            display: none;
+        }
+        .sp{
+            margin-bottom: 15px;
+        }
+    }
+    @media(min-width: 550px){
+        .sp{
+            display: none;
+        }
+        .pc{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+// #products-box
+#products-box{
+    box-sizing: border-box;
+    background-color: white;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 15px;
+    @media (min-width: 550px){
+        padding: 40px 60px;
+    }
+    
+    .products-name{
+        font-family: "ヒラギノ角ゴ Pro W6";
+        @include fontsize(14);
+        letter-spacing: 0.3rem;
+        margin-bottom: 0;
+    }
+    .cord{
+        @include fontsize(10);
+        color: #a6a6a6;
+        margin-bottom: 10px;
+    }
+    
+    .border{
+        border-bottom: 1px solid #e3e8cf;
+        margin-bottom: 10px;
+        
+    }
+    
+    .border.sp{
+        @media(min-width: 550px){
+            display: none;
+        }
+    }
+    
+    .border.pc{
+        @media(max-width: 549px){
+            display: none;
+        }
+    }
+    
+    @media (min-width: 550px){
+        .products-box-title{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+            .cord{
+                margin-bottom: 0;
+            }
+        }
+    }
+} // #products-box
+
+#list_img{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    li{
+        list-style: none;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 19%;
+        height: auto;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 550px){
+    .slideshow{
+        display: flex;
+        .display-img{
+            box-sizing: border-box;
+            width: 70%;
+        }
+        .list_img{
+            box-sizing: border-box;
+            width: 30%;
+            #list_img{
+                li{
+                    width: 50%;
+                    padding: 0 0 4px 8px;
+                }
+            }
+        }
+    }
+}
+
+table{
+    background-color: #f9f9f5;
+    border: solid 1px #e8e4da;
+    box-sizing: border-box;
+    color: $darkbrown;
+    @include fontsize(12);
+    th,td{
+        border: solid 1px #e8e4da;
+        text-align: center;
+    }
+    .th1{
+        width: 30%;
+    }
+    .th2,.th3,.th4{
+        width: 35%;
+    }
+    .th5{
+        width: 65%;
+    }
+    .white{
+        background-color: white;
+    }
+}
+
+.margin-bottom-10px{
+    margin-bottom: 10px;
+}
+
+@media (min-width: 550px){
+    .addtocart{
+        display: flex;
+        .price{
+            box-sizing: border-box;
+            margin-right: 20px;
+            width: 60%;
+        }
+        .addtocart-btn{
+            width: 40%;
+        }
+    }
+}
+
+.price{
+    p,span{
+        font-style: italic;
+        @include fontsize(14);
+        margin-bottom: 10px;
+    }
+    span{
+        color: #e80f66;
+    }
+    .sen{
+        @include fontsize(22);
+    }
+}
+
+.flexbox{
+    display: flex;
+    align-items: center;
+    .flex1{
+        width: 30%;
+    }
+    .flex2{
+        margin-top: 3px;
+        width: 70%;
+        input{
+            box-sizing: border-box;
+        }
+    }
+}
+
+.discription{
+    h3{
+        @include fontsize(16);
+        font-family: "ヒラギノ角ゴ Pro W6";
+        color: $darkbrown;
+        margin: 30px 0 15px 0;
+    }
+    
+    .border_darkbrown{
+        border: 1px solid $darkbrown;
+    }
+    
+    h4{
+        @include fontsize(16);
+        font-family: "ヒラギノ角ゴ Pro W6";
+        color: $darkbrown;
+        margin: 15px 0;
+    }
+    
+    p{
+        @include fontsize(14);
+    }
+}
+
+table tr td{
+    input{
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 549px){
+    .addtocart-btn{
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
